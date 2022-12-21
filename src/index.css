@@ -54,3 +54,9 @@ body {
   background-color: teal;
   color: white;
 }
+
+main {
+  width: 50vw;
+  margin: auto;
+  margin-top: 3rem;
+}
