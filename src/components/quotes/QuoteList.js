@@ -9,7 +9,8 @@ const QuoteList = (props) => {
   const location = useLocation();
   const [sortedQuotes, setSortedQuotes] = useState(props.quotes);
   // console.log("sortedQuotes", sortedQuotes)
-  console.log("location", location.search)
+  console.log("location", location)
+  // console.log("location", location.search)
 
 
   const changeSortingHandler = () => {
