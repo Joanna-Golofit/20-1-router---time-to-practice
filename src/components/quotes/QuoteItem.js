@@ -4,6 +4,7 @@ import classes from './QuoteItem.module.css';
 const QuoteItem = (props) => {
   console.log("propsy", props);
   const match = useRouteMatch();
+  console.log(match)
 
   return (
     <li className={classes.item}>
