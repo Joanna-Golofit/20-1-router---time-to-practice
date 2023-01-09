@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import {  useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useHttp from '../../hooks/use-http'
 import { getAllComments } from '../../lib/api'
 import LoadingSpinner from '../UI/LoadingSpinner';
@@ -22,16 +22,16 @@ const Comments = () => {
     sendRequest(quoteId)
   }, [sendRequest, quoteId])
 
-  let comments;
+  const addedCommentHandler = useCallback(() => {
+    sendRequest(quoteId)
+  }, [sendRequest, quoteId]);
 
-  const addedCommentHandler = useCallback(() => { 
-    
-  }, []);
+  let comments;
 
   if (status === 'pending') {
     comments = (
       <div className='centered'>
-      <LoadingSpinner />
+        <LoadingSpinner />
       </div>
     )
   }
@@ -52,7 +52,10 @@ const Comments = () => {
           Add a Comment
         </button>
       )}
-      {isAddingComment && <NewCommentForm onAddedComment={addedCommentHandler} quoteId={quoteId } />}
+      {isAddingComment && <NewCommentForm
+        onAddedComment={addedCommentHandler}
+        quoteId={quoteId}
+      />}
       {comments}
     </section>
   );
